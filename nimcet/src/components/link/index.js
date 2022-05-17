@@ -7,9 +7,14 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
   },
   menu: {
-    backgroundColor: "#3f51b5",
+    backgroundColor: "#2a3eb1",
     "&:hover": {
-      backgroundColor: "#2c387e",
+      backgroundColor: "#3d5afe",
+      cursor: "pointer",
+    },
+  },
+  styled: {
+    "&:hover": {
       cursor: "pointer",
     },
   },
@@ -21,6 +26,21 @@ function NimLink({ to, children, ...props }) {
     <Link to={to} className={classes.link}>
       {children}
     </Link>
+  );
+}
+
+export function StyledLink({ to, sx, text, ...props }) {
+  const navigate = useNavigate();
+  const classes = useStyles();
+  return (
+    <Typography
+      className={classes.styled}
+      component={"span"}
+      onClick={(e) => navigate(to)}
+      sx={sx}
+    >
+      {text}
+    </Typography>
   );
 }
 
