@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import {
-  Tooltip,
   IconButton,
-  Avatar,
   Container,
   Box,
   Button,
@@ -22,19 +21,58 @@ import {
   LiveHelp,
   PhoneEnabled,
   Logout,
-  Adb,
   Menu as MenuIcon,
 } from "@mui/icons-material";
 
 const pages = [
-  "Home",
-  "Participating NITS",
-  "Important Dates(Revised)",
-  "Information Brochure(Ammended)",
-  "Seat Matrix",
-  "FAQ",
-  "Contact Us",
-  "Sign Out",
+  {
+    id: 1,
+    page: "Home",
+    img: <Home />,
+    link: "",
+  },
+  {
+    id: 2,
+    page: "Participating NITS",
+    img: <LocationCity />,
+    link: "",
+  },
+  {
+    id: 3,
+    page: "Important Dates(Revised)",
+    img: <CalendarMonth />,
+    link: "",
+  },
+  {
+    id: 4,
+    page: "Information Brochure(Ammended)",
+    img: <Info />,
+    link: "",
+  },
+  {
+    id: 5,
+    page: "Seat Matrix",
+    img: <Send />,
+    link: "",
+  },
+  {
+    id: 6,
+    page: "FAQ",
+    img: <LiveHelp />,
+    link: "",
+  },
+  {
+    id: 7,
+    page: "Contact Us",
+    img: <PhoneEnabled />,
+    link: "",
+  },
+  {
+    id: 8,
+    page: "Sign Out",
+    img: <Logout />,
+    link: "",
+  },
 ];
 
 const ResponsiveAppBar = () => {
@@ -85,21 +123,34 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Link to={page.link} key={page.id}>
+                  <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                    <i>{page.img}</i>
+                    <Typography textAlign="center">{page.page}</Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
+              <Link to={page.link} key={page.id}>
+                <Button
+                  key={page.id}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 2,
+                    mx: 2,
+                    color: "white",
+                    display: "block",
+                   
+                  }}
+                >
+                  <i>{page.img}</i>
+                  <br />
+                  {page.page}
+                </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>
