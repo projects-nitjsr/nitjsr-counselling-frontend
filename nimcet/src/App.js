@@ -9,12 +9,16 @@ import CandidateReset from "./pages/client/reset";
 import Home from "./pages/home";
 import Confirmation from "./pages/admin/confirmation/Confirmation";
 import SetPasswords from "./pages/admin/Passwords/Index";
+import Notice from "./pages/home/notice";
+import Download from "./pages/home/download";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route index element={<Home />} />
+        <Route path="notice" element={<Notice />} />
+        <Route path="downloads" element={<Download />} />
         <Route path="candidate" element={<Client />}>
           <Route path="signin" element={<CandidateSignIn />} />
           <Route path="reset" element={<CandidateReset />} />
