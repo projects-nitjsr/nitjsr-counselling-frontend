@@ -9,6 +9,7 @@ import CandidateReset from "./pages/client/reset";
 import Home from "./pages/home";
 import Confirmation from "./pages/admin/confirmation/Confirmation";
 import SetPasswords from "./pages/admin/Passwords/Index";
+import Remark from "./pages/admin/remark";
 import Notice from "./pages/home/notice";
 import Download from "./pages/home/download";
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="reset" element={<Reset />} />
           <Route path="confirm" element={<Confirmation />} />
           <Route path="setPassword" element={<SetPasswords />} />
+          <Route path="remark" element={<Remark />} />
         </Route>
       </Routes>
     </BrowserRouter>
