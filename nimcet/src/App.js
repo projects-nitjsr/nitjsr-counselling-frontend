@@ -7,6 +7,8 @@ import Client from "./pages/client";
 import CandidateSignIn from "./pages/client/signin";
 import CandidateReset from "./pages/client/reset";
 import Home from "./pages/home";
+import Confirmation from "./pages/admin/confirmation/Confirmation";
+import SetPasswords from "./pages/admin/Passwords/Index";
 import Notice from "./pages/home/notice";
 import Download from "./pages/home/download";
 
@@ -24,6 +26,8 @@ function App() {
         <Route path="admin" element={<AdminPage />}>
           <Route path="signin" element={<SignIn />} />
           <Route path="reset" element={<Reset />} />
+          <Route path="confirm" element={<Confirmation />} />
+          <Route path="setPassword" element={<SetPasswords />} />
         </Route>
       </Routes>
     </BrowserRouter>
