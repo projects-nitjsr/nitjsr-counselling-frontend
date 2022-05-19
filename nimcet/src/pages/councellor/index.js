@@ -2,7 +2,7 @@ import { Toolbar, useMediaQuery } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import Navbar from "../../components/navbar/admin";
 
-function Councellor() {
+function Admin() {
   const isMobile = useMediaQuery("(max-width:600px)");
   return (
     <div>
@@ -18,4 +18,4 @@ function Councellor() {
   );
 }
 
-export default Councellor;
+export default Admin;
