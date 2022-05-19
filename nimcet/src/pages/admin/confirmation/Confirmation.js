@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Container from "@mui/material/Container";
-import Footer from "../../../components/footer";
+// import Footer from "../../../components/footer";
 import { ParaStyled, OuterWrapper } from "./confirmationStyled";
 
 const Index = () => {
@@ -12,7 +12,7 @@ const Index = () => {
           <span className="user-greet-heading">Welcome , John Doe !</span>
           <br />
           You can confirm your account detail through the link below:{" "}
-          <Link to="/admin/setPassword">CONFIRM YOUR ACCOUNT</Link>
+          <Link to="/councellor/setPassword">CONFIRM YOUR ACCOUNT</Link>
           <br />
           <span className="highlight">
             {" "}
@@ -20,7 +20,6 @@ const Index = () => {
           </span>
         </ParaStyled>
       </Container>
-      <Footer />
     </OuterWrapper>
   );
 };

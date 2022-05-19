@@ -12,7 +12,7 @@ import {
   MenuItem,
   Button,
 } from "@mui/material";
-import PagesNavbar from "../../../components/navbar/PagesNavbar";
+// import PagesNavbar from "../../../components/navbar/PagesNavbar";
 
 const Index = () => {
   const [securityQuestions, setSecurityQuestions] = useState("");
@@ -51,7 +51,7 @@ const Index = () => {
 
   return (
     <>
-      <PagesNavbar />
+      {/* <PagesNavbar /> */}
       <Container maxWidth="lg">
         <Grid container my={3} spacing={2}>
           <Grid item xs={12} md={6}>

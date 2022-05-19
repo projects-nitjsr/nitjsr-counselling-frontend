@@ -13,6 +13,8 @@ import Remark from "./pages/admin/remark";
 import Notice from "./pages/home/notice";
 import Download from "./pages/home/download";
 import CandidateInfo from "./pages/admin/CandidateInfo";
+import CenterIncharge from "./pages/centerIncharge";
+import Councellor from "./pages/councellor";
 
 function App() {
   return (
@@ -25,15 +27,17 @@ function App() {
           <Route path="signin" element={<CandidateSignIn />} />
           <Route path="reset" element={<CandidateReset />} />
         </Route>
-        <Route path="admin" element={<AdminPage />}>
+        <Route path="center-incharge" element={<CenterIncharge />} />
+        <Route path="councellor" element={<Councellor />}>
           <Route path="signin" element={<SignIn />} />
           <Route path="reset" element={<Reset />} />
           <Route path="candidate-info" element={<CandidateInfo />} />
-          
+
           <Route path="confirm" element={<Confirmation />} />
           <Route path="setPassword" element={<SetPasswords />} />
           <Route path="remark" element={<Remark />} />
         </Route>
+        <Route path="admin" element={<AdminPage />}></Route>
       </Routes>
     </BrowserRouter>
   );

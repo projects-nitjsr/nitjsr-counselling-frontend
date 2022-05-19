@@ -1,10 +1,4 @@
-import {
-  Container,
-  Grid,
-  Box,
-  Typography,
-  Button,
-} from "@mui/material";
+import { Container, Grid, Box, Typography, Button } from "@mui/material";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
@@ -14,6 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import Footer from "../../components/footer";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -53,142 +48,156 @@ const rows2 = [
 
 function Remark() {
   return (
-    <Container>
-      <Grid
-        container
-        direction="row"
-        justifyContent={"center"}
-        alignItems={"center"}
-      >
-        <Grid xs={12} md={4} lg={6} item>
-          <Box>
-            <Grid container direction="column">
-              <Grid item>
-                <Box sx={{ backgroundColor: "#2196f3", padding: "12px" }}>
-                  <Grid
-                    container
-                    spacing={1}
-                    alignItems="center"
-                    justifyContent={"space-around"}
-                    direction="row"
-                  >
-                    <Grid xs={10} item>
-                      <Typography
-                        color={"#fff"}
-                        variant="h5"
-                        display={"flex"}
-                        justifyContent={"center"}
-                      >
-                        Application Form Remarks
-                      </Typography>
+    <Box>
+      <Container>
+        <Grid
+          container
+          direction="row"
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <Grid xs={12} md={4} lg={6} item>
+            <Box>
+              <Grid container direction="column">
+                <Grid item>
+                  <Box sx={{ backgroundColor: "#2196f3", padding: "12px" }}>
+                    <Grid
+                      container
+                      spacing={1}
+                      alignItems="center"
+                      justifyContent={"space-around"}
+                      direction="row"
+                    >
+                      <Grid xs={10} item>
+                        <Typography
+                          color={"#fff"}
+                          variant="h5"
+                          display={"flex"}
+                          justifyContent={"center"}
+                        >
+                          Application Form Remarks
+                        </Typography>
+                      </Grid>
                     </Grid>
-                  </Grid>
-                </Box>
+                  </Box>
+                </Grid>
               </Grid>
-            </Grid>
-          </Box>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell align="center">Sl No</StyledTableCell>
-              <StyledTableCell align="center">Section</StyledTableCell>
-              <StyledTableCell align="center">Remarks</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows1.map((row) => (
-              <StyledTableRow key={row.name}>
-                <StyledTableCell component="th" scope="row" align="center">
-                  {row.slno}
-                </StyledTableCell>
-                <StyledTableCell align="center">{row.section}</StyledTableCell>
-                <StyledTableCell align="center">{row.remarks}</StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <br />
-      <Grid
-        container
-        direction="row"
-        justifyContent={"center"}
-        alignItems={"center"}
-      >
-        <Grid xs={12} md={4} lg={6} item>
-          <Box>
-            <Grid container direction="column">
-              <Grid item>
-                <Box sx={{ backgroundColor: "#2196f3", padding: "12px" }}>
-                  <Grid
-                    container
-                    spacing={1}
-                    alignItems="center"
-                    justifyContent={"space-around"}
-                    direction="row"
-                  >
-                    <Grid xs={10} item>
-                      <Typography
-                        color={"#fff"}
-                        variant="h5"
-                        display={"flex"}
-                        justifyContent={"center"}
-                      >
-                        Uploaded Document Remarks
-                      </Typography>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 700 }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell align="center">Sl No</StyledTableCell>
+                <StyledTableCell align="center">Section</StyledTableCell>
+                <StyledTableCell align="center">Remarks</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows1.map((row) => (
+                <StyledTableRow key={row.name}>
+                  <StyledTableCell component="th" scope="row" align="center">
+                    {row.slno}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {row.section}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {row.remarks}
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <br />
+        <Grid
+          container
+          direction="row"
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <Grid xs={12} md={4} lg={6} item>
+            <Box>
+              <Grid container direction="column">
+                <Grid item>
+                  <Box sx={{ backgroundColor: "#2196f3", padding: "12px" }}>
+                    <Grid
+                      container
+                      spacing={1}
+                      alignItems="center"
+                      justifyContent={"space-around"}
+                      direction="row"
+                    >
+                      <Grid xs={10} item>
+                        <Typography
+                          color={"#fff"}
+                          variant="h5"
+                          display={"flex"}
+                          justifyContent={"center"}
+                        >
+                          Uploaded Document Remarks
+                        </Typography>
+                      </Grid>
                     </Grid>
-                  </Grid>
-                </Box>
+                  </Box>
+                </Grid>
               </Grid>
-            </Grid>
-          </Box>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell align="center">Sl No</StyledTableCell>
-              <StyledTableCell align="center">Document Name</StyledTableCell>
-              <StyledTableCell align="center">Is Verified ?</StyledTableCell>
-              <StyledTableCell align="center">Remarks (if any)</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows2.map((row) => (
-              <StyledTableRow key={row.name}>
-                <StyledTableCell component="th" scope="row" align="center">
-                  {row.slno}
-                </StyledTableCell>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 700 }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell align="center">Sl No</StyledTableCell>
+                <StyledTableCell align="center">Document Name</StyledTableCell>
+                <StyledTableCell align="center">Is Verified ?</StyledTableCell>
                 <StyledTableCell align="center">
-                  {row.documentname}
+                  Remarks (if any)
                 </StyledTableCell>
-                <StyledTableCell align="center">{row.isverify}</StyledTableCell>
-                <StyledTableCell align="center">{row.remarks}</StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <div className="noted">
-        <h3 color="red"> NOTE- </h3>
-        <h4>
-          {" "}
-          Please check all remarks again. If you wany to modify, close the
-          window and re-edit. Once you click on Submit Button Application will
-          be locked.
-        </h4>
-      </div>
-      <div className="noted2" align="center">
-        <h1> Are You Sure ?</h1>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows2.map((row) => (
+                <StyledTableRow key={row.name}>
+                  <StyledTableCell component="th" scope="row" align="center">
+                    {row.slno}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {row.documentname}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {row.isverify}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {row.remarks}
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <div className="noted">
+          <h3 color="red"> NOTE- </h3>
+          <h4>
+            {" "}
+            Please check all remarks again. If you wany to modify, close the
+            window and re-edit. Once you click on Submit Button Application will
+            be locked.
+          </h4>
+        </div>
+        <div className="noted2" align="center">
+          <h1> Are You Sure ?</h1>
 
-        <Button variant="contained">Submit</Button>
-        <Button variant="outlined">Cancel</Button>
-      </div>
-    </Container>
+          <Button variant="contained">Submit</Button>
+          <Button variant="outlined">Cancel</Button>
+        </div>
+        <br />
+      </Container>
+      <Footer />
+    </Box>
   );
 }
 
