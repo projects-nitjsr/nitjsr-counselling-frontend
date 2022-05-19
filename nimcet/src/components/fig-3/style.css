@@ -1,0 +1,75 @@
+.f3-title {
+	background-color: rgb(38, 169, 226);
+	color: white;
+	text-align: center;
+	font-weight: 600;
+	padding: 0.5rem;
+	border-bottom: 2px solid #000;
+}
+
+.f3-buttons {
+	align-items: center;
+	margin-left: 35%;
+}
+
+.f3-form-table {
+	margin: 0.5rem;
+}
+
+.close-icon {
+	margin-left: 80%;
+}
+
+.employee-btn {
+	background-color: crimson;
+	color: white;
+	font-weight: 600;
+	outline: none;
+	border: none;
+	height: 2rem;
+	width: 10rem;
+	cursor: pointer;
+}
+
+.close-btn {
+	background-color: rgb(216, 204, 67);
+	color: white;
+	font-weight: 600;
+	outline: none;
+	border: none;
+	height: 2rem;
+	width: 5rem;
+	cursor: pointer;
+	margin-left: 2.5rem;
+}
+
+.cell {
+	outline: none;
+	margin-left: 1rem;
+	/* border: 1px solid black; */
+}
+.cell:focus {
+	outline: none;
+	border: 2px solid rgb(38, 169, 226);
+}
+
+.cell-input {
+	width: 90%;
+	height: 1.5rem;
+	border: 1px solid black;
+}
+.cell-option {
+	border: 1px solid black;
+}
+
+.table-cell {
+	border: 1px solid rgb(0, 0, 0) !important;
+}
+
+.f3-box {
+	@media only screen and (max-width: 600px) {
+		body {
+			background-color: lightblue;
+		}
+	}
+}
