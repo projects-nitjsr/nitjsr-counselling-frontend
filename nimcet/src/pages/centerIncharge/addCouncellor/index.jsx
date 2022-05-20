@@ -4,16 +4,14 @@ import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import { radioClasses } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import img from "./user.png";
+import NewCouncellorModal from "../../../components/newCouncellorModal";
 
 function createData(field, data) {
 	return { field, data };
@@ -40,8 +38,12 @@ const Item = styled(Paper)(({ theme }) => ({
 	boxShadow: "0px",
 }));
 
-const Fig2 = () => {
+const AddCouncellor = () => {
+	const [open, setOpen] = React.useState(false);
+	const handleOpen = () => setOpen(true);
+	const handleClose = () => setOpen(false);
 	return (
+		<>
 		<div className="">
 			<div className="f2-outline-GD">
 				<div className="f2-title">General Details</div>
@@ -97,7 +99,7 @@ const Fig2 = () => {
 				<div className="f2-cells">
 					<Box sx={{ flexGrow: 1 }}>
 						<Grid container spacing={3}>
-							<Grid item xs={12} md={4}>
+							<Grid onClick={handleOpen} item xs={12} md={4}>
 								<Item>
 									<img src={img} alt="img" className="f2-img" />
 									<p className="cell-title">Employee Admin</p>
@@ -122,7 +124,9 @@ const Fig2 = () => {
 				<br />
 			</div>
 		</div>
+		<NewCouncellorModal open={open} handleClose={handleClose} />
+		</>
 	);
 };
 
-export default Fig2;
+export default AddCouncellor;

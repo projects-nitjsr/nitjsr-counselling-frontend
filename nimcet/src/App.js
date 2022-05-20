@@ -12,11 +12,12 @@ import SetPasswords from "./pages/councellor/Passwords/Index";
 import Remark from "./pages/councellor/remark";
 import Notice from "./pages/home/notice";
 import Download from "./pages/home/download";
-import Information from "./pages/admin/information/Information";
+import Information from "./pages/councellor/information/Information";
 import CandidateInfo from "./pages/councellor/CandidateInfo";
 import CenterIncharge from "./pages/centerIncharge";
 import Admin from "./pages/admin";
 import SetPasswordIncharge from "./pages/centerIncharge/setPassword";
+import AddCouncellor from "./pages/centerIncharge/addCouncellor";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         </Route>
         <Route path="center-incharge" element={<CenterIncharge />}>
           <Route path="set-password" element={<SetPasswordIncharge />} />
+          <Route path="add-councellor" element={<AddCouncellor />} />
         </Route>
         <Route path="councellor" element={<Councellor />}>
           <Route path="signin" element={<SignIn />} />
