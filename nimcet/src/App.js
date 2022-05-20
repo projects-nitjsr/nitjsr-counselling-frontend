@@ -12,6 +12,7 @@ import SetPasswords from "./pages/admin/Passwords/Index";
 import Remark from "./pages/admin/remark";
 import Notice from "./pages/home/notice";
 import Download from "./pages/home/download";
+import Information from "./pages/admin/information/Information";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="confirm" element={<Confirmation />} />
           <Route path="setPassword" element={<SetPasswords />} />
           <Route path="remark" element={<Remark />} />
+          <Route path="information" element={<Information />} />
         </Route>
       </Routes>
     </BrowserRouter>
