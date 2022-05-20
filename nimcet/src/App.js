@@ -18,6 +18,7 @@ import CenterIncharge from "./pages/centerIncharge";
 import Admin from "./pages/admin";
 import SetPasswordIncharge from "./pages/centerIncharge/setPassword";
 import AddCouncellor from "./pages/centerIncharge/addCouncellor";
+import CandidateDetail from "./pages/centerIncharge/candidateDetail";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="center-incharge" element={<CenterIncharge />}>
           <Route path="set-password" element={<SetPasswordIncharge />} />
           <Route path="add-councellor" element={<AddCouncellor />} />
+          <Route path="candidate-detail" element={<CandidateDetail />} />
         </Route>
         <Route path="councellor" element={<Councellor />}>
           <Route path="signin" element={<SignIn />} />
