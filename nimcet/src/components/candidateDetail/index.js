@@ -1,9 +1,9 @@
 
-import './App.css';
+import './style.css';
 import { Grid } from '@mui/material';
 
 
-function App() {
+function CandidateDetail() {
   return (
     <div className="App">
       <Grid container
@@ -182,4 +182,4 @@ function App() {
   );
 }
 
-export default App;
+export default CandidateDetail;
