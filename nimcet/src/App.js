@@ -12,6 +12,7 @@ import SetPasswords from "./pages/councellor/Passwords/Index";
 import Remark from "./pages/councellor/remark";
 import Notice from "./pages/home/notice";
 import Download from "./pages/home/download";
+import Information from "./pages/admin/information/Information";
 import CandidateInfo from "./pages/councellor/CandidateInfo";
 import CenterIncharge from "./pages/centerIncharge";
 import Admin from "./pages/admin";
@@ -39,6 +40,7 @@ function App() {
           <Route path="confirm" element={<Confirmation />} />
           <Route path="setPassword" element={<SetPasswords />} />
           <Route path="remark" element={<Remark />} />
+          <Route path="information" element={<Information />} />
         </Route>
         <Route path="admin" element={<Admin />}></Route>
       </Routes>
