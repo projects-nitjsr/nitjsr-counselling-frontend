@@ -19,6 +19,9 @@ import Admin from "./pages/admin";
 import SetPasswordIncharge from "./pages/centerIncharge/setPassword";
 import AddCouncellor from "./pages/centerIncharge/addCouncellor";
 import CandidateDetail from "./pages/centerIncharge/candidateDetail";
+import Student from "./pages/student";
+import Dashboard from "./pages/student/dashboard";
+import ApplicationForm from "./pages/student/applicationForm";
 
 function App() {
   return (
@@ -47,6 +50,10 @@ function App() {
           <Route path="information" element={<Information />} />
         </Route>
         <Route path="admin" element={<Admin />}></Route>
+        <Route path="student" element={<Student />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="application-form" element={<ApplicationForm />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
