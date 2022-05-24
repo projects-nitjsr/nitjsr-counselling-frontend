@@ -1,0 +1,15 @@
+.App {
+    
+    border: 2px solid rgb(108, 108, 239);
+    height: 40em;
+    width: 40em;
+    margin: 3rem;
+    margin-left: 25rem;
+  }
+  .required:after {
+    content:" *";
+    color: red;
+  }
+  .header{
+      background-color: rgb(108, 108, 239);
+  }
