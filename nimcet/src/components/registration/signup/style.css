@@ -1,15 +1,42 @@
 .App {
     
-    border: 2px solid rgb(108, 108, 239);
-    height: 40em;
-    width: 40em;
+    border: 2px solid rgb(56, 124, 180);;
+    height: 500px;
+    width: 500px;
     margin: 3rem;
     margin-left: 25rem;
   }
-  .required:after {
+  
+ .required:after {
     content:" *";
     color: red;
   }
-  .header{
-      background-color: rgb(108, 108, 239);
+
+.header{
+      background-color: rgb(56, 124, 180);
+	  height: 1.5rem;
+	  color: white;
+	  align-items: left;
+	  padding: 0.5rem;
   }
+
+.form{
+	padding: 2rem;
+	
+}
+
+
+.form_elem{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.form_elem .input-field{
+	margin-left: 1rem;
+	width: 60%;
+}
+.captcha{
+	margin: 1.5rem;
+}
+
+
