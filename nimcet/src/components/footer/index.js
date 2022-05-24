@@ -35,7 +35,7 @@ function Footer(props) {
           <Grid container direction="row">
             <Grid xs={4} md={2} item>
               <StyledLink
-                to="/admin"
+                to="/home/faq"
                 sx={{ color: "#fff", fontSize: "12px" }}
                 text="FAQs"
               />

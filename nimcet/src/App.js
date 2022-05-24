@@ -22,6 +22,8 @@ import CandidateDetail from "./pages/centerIncharge/candidateDetail";
 import Student from "./pages/student";
 import Dashboard from "./pages/student/dashboard";
 import ApplicationForm from "./pages/student/applicationForm";
+import HomeIndex from "./pages/home/home";
+import FAQ from "./pages/home/faq";
 
 function App() {
   return (
@@ -53,6 +55,9 @@ function App() {
         <Route path="student" element={<Student />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="application-form" element={<ApplicationForm />} />
+        </Route>
+        <Route path="home" element={<HomeIndex />}>
+          <Route path="faq" element={<FAQ />} />
         </Route>
       </Routes>
     </BrowserRouter>
