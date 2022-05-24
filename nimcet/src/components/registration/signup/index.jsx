@@ -7,7 +7,7 @@ function onChange(value) {
 }
 const signup = () => {
 	 return (
-		<div className="App">
+		<div className="box">
 		<div className='header'>New Candidate Signin</div>
 			<form className="form">
 				<div className="form_elem">
