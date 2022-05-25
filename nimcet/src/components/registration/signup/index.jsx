@@ -1,51 +1,58 @@
 import React from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import './style.css';
+import "./style.css";
 
 function onChange(value) {
-  console.log("Captcha value:", value);
+	console.log("Captcha value:", value);
 }
 const signup = () => {
-	 return (
+	return (
 		<div className="box">
-		<div className='header'>New Candidate Signin</div>
+			<div className="header">New Candidate Signin</div>
 			<form className="form">
 				<div className="form_elem">
-				<label className='required'>First Name</label>
-				<input className="input-field " placeholder='First Name' type="text"/>
+					<label className="required">First Name</label>
+					<input
+						className="input-field "
+						placeholder="First Name"
+						type="text"
+					/>
 				</div>
-				<br/>
+				<br />
 				<div className="form_elem">
-				<label>Middle Name</label>
-				<input className="input-field" placeholder='Middle Name' type="text"/>
+					<label>Middle Name</label>
+					<input
+						className="input-field"
+						placeholder="Middle Name"
+						type="text"
+					/>
 				</div>
-				<br/>
+				<br />
 				<div className="form_elem">
-				<label>Last Name</label>
-				<input className="input-field" placeholder='Last Name' type="text"/>
+					<label>Last Name</label>
+					<input className="input-field" placeholder="Last Name" type="text" />
 				</div>
-				<br/>
+				<br />
 				<div className="form_elem">
-				<label className='required'>Email</label>
-				<input className="input-field" placeholder='Email' type="text"/>
+					<label className="required">Email</label>
+					<input className="input-field" placeholder="Email" type="text" />
 				</div>
-				<br/>
+				<br />
 				<div className="form_elem">
-				<label className='required'>Mobile</label>
-				<input className="input-field" placeholder='Mobile' type="text"/>
+					<label className="required">Mobile</label>
+					<input className="input-field" placeholder="Mobile" type="text" />
 				</div>
-				<br/>
+				<br />
 				<div className="form_elem captcha">
-				<ReCAPTCHA
-				sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-				onChange={onChange}
-				/>
+					<ReCAPTCHA
+						sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+						onChange={onChange}
+					/>
 				</div>
 				<button className="reset-btn"> Reset</button>
 			</form>
 		</div>
-	 )
-	
+	);
 };
 
 export default signup;

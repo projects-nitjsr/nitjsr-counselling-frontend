@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
 import "./style.css";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -80,17 +81,66 @@ export default function BasicGrid() {
 						</Grid>
 						<Grid item xs={12} md={6}>
 							<Item>
-								{" "}
-								<div className="l-leftBox">
-									<div className="lb-outline">
-										<div className="lb-content-box">
+								<div className="l-rightBox">
+									<div className="rb-outline">
+										<div className="rb-content-box">
 											<div
-												className="lb-title"
+												className="rb-title"
 												style={{ backgroundColor: "rgb(56,124,180)" }}
 											>
 												Login
 											</div>
-											<br />
+											<div className="rb-content-box">
+												<div className="rb-content-box-interior">
+													<form className="form">
+														<br />
+														<div className="form_elem">
+															<label className="required">
+																<strong>Email</strong>
+															</label>
+															<input
+																className="input-field"
+																placeholder="Email"
+																type="text"
+															/>
+														</div>
+														<br />
+														<div className="form_elem">
+															<label className="required">
+																<strong>Password</strong>
+															</label>
+															<input
+																className="input-field"
+																placeholder="Password"
+																type="password"
+															/>
+														</div>
+														<br />
+														<input
+															type="checkbox"
+															value="lsRememberMe"
+															id="rememberMe"
+														/>
+														<label for="rememberMe"> Remember me</label>
+														<br />
+														<br />
+														<br />
+														<div className="l-buttons">
+															<Stack direction="row" spacing={2}>
+																<button type="button" className="rb-login-btn">
+																	Log In
+																</button>
+																<button
+																	type="button"
+																	className="rb-fPassword-btn"
+																>
+																	Forgot Password?
+																</button>
+															</Stack>
+														</div>
+													</form>
+												</div>
+											</div>
 										</div>
 										<br />
 										<br />
