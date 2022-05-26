@@ -1,0 +1,33 @@
+.compo{
+    border-style: solid;
+    border-color: black;
+}
+.topRow
+{
+    font-weight: bolder;
+    color: white;
+    background-color: darkblue;
+    border-style: solid;
+    border-color: black;
+    justify-content: center;
+    padding: 0.45em 0;
+}
+
+
+.rowElement {
+    background-color: rgba(242, 242, 248, 0.856);
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.612);
+    justify-content: center;
+    padding: 0.25em 0;
+  }
+  .submitBtn{
+      font-size: 1vw;
+    background-color:rgb(30, 219, 36);
+    color:white;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 0.45em;
+    margin: 1.2rem 0;
+  }
+  
