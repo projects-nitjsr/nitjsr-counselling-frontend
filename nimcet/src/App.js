@@ -20,36 +20,44 @@ import SetPasswordIncharge from "./pages/centerIncharge/setPassword";
 import AddCouncellor from "./pages/centerIncharge/addCouncellor";
 import CandidateDetail from "./pages/centerIncharge/candidateDetail";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="notice" element={<Notice />} />
-        <Route path="downloads" element={<Download />} />
-        <Route path="candidate" element={<Client />}>
-          <Route path="signin" element={<CandidateSignIn />} />
-          <Route path="reset" element={<CandidateReset />} />
-        </Route>
-        <Route path="center-incharge" element={<CenterIncharge />}>
-          <Route path="set-password" element={<SetPasswordIncharge />} />
-          <Route path="add-councellor" element={<AddCouncellor />} />
-          <Route path="candidate-detail" element={<CandidateDetail />} />
-        </Route>
-        <Route path="councellor" element={<Councellor />}>
-          <Route path="signin" element={<SignIn />} />
-          <Route path="reset" element={<Reset />} />
-          <Route path="candidate-info" element={<CandidateInfo />} />
+import Signup from "./components/registration/signup";
+import Login from "./components/registration/login";
+import SetPassword from "./components/registration/setPassword";
 
-          <Route path="confirm" element={<Confirmation />} />
-          <Route path="setPassword" element={<SetPasswords />} />
-          <Route path="remark" element={<Remark />} />
-          <Route path="information" element={<Information />} />
-        </Route>
-        <Route path="admin" element={<Admin />}></Route>
-      </Routes>
-    </BrowserRouter>
-  );
+function App() {
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route index element={<Home />} />
+				<Route path="notice" element={<Notice />} />
+				<Route path="downloads" element={<Download />} />
+				<Route path="candidate" element={<Client />}>
+					<Route path="signin" element={<CandidateSignIn />} />
+					<Route path="reset" element={<CandidateReset />} />
+				</Route>
+				<Route path="center-incharge" element={<CenterIncharge />}>
+					<Route path="set-password" element={<SetPasswordIncharge />} />
+					<Route path="add-councellor" element={<AddCouncellor />} />
+					<Route path="candidate-detail" element={<CandidateDetail />} />
+				</Route>
+				<Route path="councellor" element={<Councellor />}>
+					<Route path="signin" element={<SignIn />} />
+					<Route path="reset" element={<Reset />} />
+					<Route path="candidate-info" element={<CandidateInfo />} />
+
+					<Route path="confirm" element={<Confirmation />} />
+					<Route path="setPassword" element={<SetPasswords />} />
+					<Route path="remark" element={<Remark />} />
+					<Route path="information" element={<Information />} />
+				</Route>
+				<Route path="admin" element={<Admin />}></Route>
+				{/* REGISTRATION */}
+				<Route path="login" element={<Login />}></Route>
+				<Route path="signup" element={<Signup />}></Route>
+				<Route path="setpassword" element={<SetPassword />}></Route>
+			</Routes>
+		</BrowserRouter>
+	);
 }
 
 export default App;
