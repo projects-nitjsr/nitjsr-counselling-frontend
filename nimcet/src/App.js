@@ -25,6 +25,10 @@ import ApplicationForm from "./pages/student/applicationForm";
 import HomeIndex from "./pages/home/home";
 import FAQ from "./pages/home/faq";
 
+import Signup from "./components/registration/signup";
+import Login from "./components/registration/login";
+import SetPassword from "./components/registration/setPassword";
+
 function App() {
   return (
     <BrowserRouter>
@@ -45,7 +49,6 @@ function App() {
           <Route path="signin" element={<SignIn />} />
           <Route path="reset" element={<Reset />} />
           <Route path="candidate-info" element={<CandidateInfo />} />
-
           <Route path="confirm" element={<Confirmation />} />
           <Route path="setPassword" element={<SetPasswords />} />
           <Route path="remark" element={<Remark />} />
@@ -55,6 +58,9 @@ function App() {
         <Route path="student" element={<Student />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="application-form" element={<ApplicationForm />} />
+          <Route path="login" element={<Login />}></Route>
+          <Route path="signup" element={<Signup />}></Route>
+          <Route path="setpassword" element={<SetPassword />}></Route>
         </Route>
         <Route path="home" element={<HomeIndex />}>
           <Route path="faq" element={<FAQ />} />
@@ -63,5 +69,4 @@ function App() {
     </BrowserRouter>
   );
 }
-
 export default App;
