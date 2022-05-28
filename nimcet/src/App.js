@@ -22,9 +22,9 @@ import ApplicationForm from "./pages/student/applicationForm";
 import HomeIndex from "./pages/home/home";
 import FAQ from "./pages/home/faq";
 
-import Signup from "./components/registration/signup";
-import Login from "./components/registration/login";
-import SetPassword from "./components/registration/setPassword";
+import StudentSignup from "./pages/student/signup";
+import StudentLogin from "./pages/student/login";
+import StudentSetPassword from "./pages/student/setPassword";
 import StudentRegistration from "./pages/student/registration";
 
 function App() {
@@ -62,9 +62,9 @@ function App() {
           <Route path="register" element={<StudentRegistration />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="application-form" element={<ApplicationForm />} />
-          <Route path="login" element={<Login />}></Route>
-          <Route path="signup" element={<Signup />}></Route>
-          <Route path="setpassword" element={<SetPassword />}></Route>
+          <Route path="login" element={<StudentLogin />}/>
+          <Route path="signup" element={<StudentSignup />}/>
+          <Route path="setpassword" element={<StudentSetPassword />}></Route>
         </Route>
 
         {/* home page routes */}
