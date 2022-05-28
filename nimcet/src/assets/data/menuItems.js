@@ -20,7 +20,7 @@ export const menuItem=[
         path:"/seat_matrix",
     },
     {
-        text:"Information",
-        path:"/info"
+        text:"Login",
+        path:"/student/login"
     }
 ]

@@ -27,7 +27,7 @@ export default function BasicGrid() {
    */
   const newRegistrationClickListener = (e) => {
     e.preventDefault();
-    navigate("/student/signup");
+    navigate("/student/register");
   };
 
   
