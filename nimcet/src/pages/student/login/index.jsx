@@ -6,6 +6,9 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+import { useFormik } from "formik";
+import { loginAPICall, LoginValidationSchema } from "./logic";
+import { useToasts } from "react-toast-notifications";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -19,18 +22,38 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function BasicGrid() {
   const navigate = useNavigate();
+  const toast = useToasts();
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: LoginValidationSchema,
+    onSubmit: (values) => {
+      loginAPICall(values)
+        .then((res) => {
+          const { error, message } = res;
+          error?.forEach((err) => toast.addToast(err, { appearance: "error" }));
+          message?.forEach((err) =>
+            toast.addToast(err, { appearance: "success" })
+          );
+        })
+        .catch((err) => {
+          console.log(err);
+          toast.addToast("Something went wrong", { appearance: "error" });
+        });
+    },
+  });
 
   /**
-   * 
+   *
    * @description This function is used to navigate to the signup page
-   * @param {*} e 
+   * @param {*} e
    */
   const newRegistrationClickListener = (e) => {
     e.preventDefault();
     navigate("/student/register");
   };
-
-  
 
   return (
     <div>
@@ -61,7 +84,11 @@ export default function BasicGrid() {
                       <div className="lb-content-box">
                         <div className="lb-content-box-interior">
                           <div>
-                            <button type="button" onClick={newRegistrationClickListener} className="lb-button">
+                            <button
+                              type="button"
+                              onClick={newRegistrationClickListener}
+                              className="lb-button"
+                            >
                               New Registration
                             </button>
                           </div>
@@ -105,17 +132,21 @@ export default function BasicGrid() {
                       >
                         Login
                       </div>
+
                       <div className="rb-content-box">
                         <div className="rb-content-box-interior">
-                          <form className="form">
+                          <form onSubmit={formik.handleSubmit} className="form">
                             <br />
                             <div className="form_elem">
                               <label className="required">
-                                <strong>Email</strong>
+                                <strong>Registration No.</strong>
                               </label>
                               <input
+                                name="email"
+                                value={formik.values.email}
+                                onChange={formik.handleChange}
                                 className="input-field"
-                                placeholder="Email"
+                                placeholder="Registration No."
                                 type="text"
                               />
                             </div>
@@ -125,6 +156,9 @@ export default function BasicGrid() {
                                 <strong>Password</strong>
                               </label>
                               <input
+                                name="password"
+                                value={formik.values.password}
+                                onChange={formik.handleChange}
                                 className="input-field"
                                 placeholder="Password"
                                 type="password"
@@ -142,7 +176,7 @@ export default function BasicGrid() {
                             <br />
                             <div className="l-buttons">
                               <Stack direction="row" spacing={2}>
-                                <button type="button" className="rb-login-btn">
+                                <button type="submit" className="rb-login-btn">
                                   Log In
                                 </button>
                                 <button
