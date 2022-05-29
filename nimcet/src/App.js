@@ -26,6 +26,7 @@ import StudentSignup from "./pages/student/signup";
 import StudentLogin from "./pages/student/login";
 import StudentSetPassword from "./pages/student/setPassword";
 import StudentRegistration from "./pages/student/registration";
+import AdminSignin from "./pages/admin/signin";
 
 function App() {
   return (
@@ -55,15 +56,17 @@ function App() {
         </Route>
 
         {/* admin routes */}
-        <Route path="admin" element={<Admin />}></Route>
+        <Route path="admin" element={<Admin />}>
+          <Route path="login" element={<AdminSignin />} />
+        </Route>
 
         {/* student routes */}
         <Route path="student" element={<Student />}>
           <Route path="register" element={<StudentRegistration />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="application-form" element={<ApplicationForm />} />
-          <Route path="login" element={<StudentLogin />}/>
-          <Route path="signup" element={<StudentSignup />}/>
+          <Route path="login" element={<StudentLogin />} />
+          <Route path="signup" element={<StudentSignup />} />
           <Route path="setpassword" element={<StudentSetPassword />}></Route>
         </Route>
 

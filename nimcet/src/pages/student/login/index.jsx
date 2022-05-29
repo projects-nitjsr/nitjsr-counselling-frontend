@@ -95,7 +95,7 @@ export default function BasicGrid() {
                           <div className="lb-instructions">
                             <ol>
                               <li>
-                                Candidate can only login through the email-id
+                                Candidate can only login through the registration no
                                 provided during registration process.
                               </li>
                               <li>
