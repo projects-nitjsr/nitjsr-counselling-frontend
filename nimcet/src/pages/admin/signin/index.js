@@ -33,6 +33,9 @@ const AdminSignin = (props) => {
             toast.addToast(err, { appearance: "success" })
           );
           setSubmitting(false);
+          if (error?.length === 0) {
+            navigate("/admin/dashboard");
+          }
         })
         .catch((err) => {
           setSubmitting(false);

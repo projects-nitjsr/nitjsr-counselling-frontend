@@ -41,7 +41,9 @@ export default function BasicGrid() {
             toast.addToast(err, { appearance: "success" })
           );
           setSubmitting(true);
-          navigate("/student/dashboard");
+          if (error?.length === 0) {
+            navigate("/student/dashboard");
+          }
         })
         .catch((err) => {
           setSubmitting(true);
