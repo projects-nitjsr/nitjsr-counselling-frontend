@@ -1,7 +1,7 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
-import { SignUpAPIcall, signupValidationSchema } from "./logic";
+import { resetAPIcall, resetValidationSchema } from "./logic";
 import useStyles from "./styles";
 import { useToasts } from "react-toast-notifications";
 import useQuery from "../../../lib/hooks/useQuery";
@@ -11,7 +11,7 @@ import useQuery from "../../../lib/hooks/useQuery";
  * @param {*} props
  * @returns
  */
-const StudentSignup = (props) => {
+const AdminResetPassword = (props) => {
   const classes = useStyles();
   const query = useQuery();
   const token = query.get("t");
@@ -22,16 +22,19 @@ const StudentSignup = (props) => {
       password: "",
       confirm: "",
     },
-    validationSchema: signupValidationSchema,
+    validationSchema: resetValidationSchema,
     onSubmit: (values) => {
       const { password } = values;
-      SignUpAPIcall({ password, token })
+      resetAPIcall({ password, token })
         .then((res) => {
           const { error, message } = res;
           error?.forEach((err) => toast.addToast(err, { appearance: "error" }));
           message?.forEach((err) =>
             toast.addToast(err, { appearance: "success" })
           );
+          if (error?.length === 0) {
+            navigate("/admin/login");
+          }
         })
         .catch((err) => {
           toast.addToast("Something went wrong", { appearance: "error" });
@@ -41,7 +44,7 @@ const StudentSignup = (props) => {
 
   const handleGotoLogin = (e) => {
     e.preventDefault();
-    navigate("/student/login");
+    navigate("/admin/login");
   };
   return (
     <div style={{ padding: "8px" }}>
@@ -57,7 +60,7 @@ const StudentSignup = (props) => {
             <Grid container direction="column">
               <Grid item>
                 <Typography className={classes.topBar}>
-                  Candidate Signup
+                  Admin Password Reset
                 </Typography>
               </Grid>
               <Grid item>
@@ -68,7 +71,7 @@ const StudentSignup = (props) => {
                     variant="contained"
                     color="success"
                   >
-                    Candidate Signup
+                    Admin Login
                   </Button>
                   <br />
                   <br />
@@ -99,7 +102,9 @@ const StudentSignup = (props) => {
           <Box className={classes.root}>
             <Grid container direction="column">
               <Grid item>
-                <Typography className={classes.topBar}>Registration</Typography>
+                <Typography className={classes.topBar}>
+                  Reset Password
+                </Typography>
               </Grid>
               <Grid item>
                 <Box className={classes.form}>
@@ -122,6 +127,24 @@ const StudentSignup = (props) => {
                       </Grid>
                     </Grid>
                     <br />
+                    {/* <Grid container alignItems={"center"} direction="row">
+                      <Grid xs={3} item>
+                        <Typography>Email:</Typography>
+                      </Grid>
+                      <Grid xs={9} item>
+                        <TextField
+                          fullWidth
+                          type="text"
+                          name="email"
+                          value={formik.values.email}
+                          onChange={formik.handleChange}
+                          error={formik.errors.email ? true : false}
+                          helperText={formik.errors.email}
+                          variant="outlined"
+                        />
+                      </Grid>
+                    </Grid>
+                    <br /> */}
                     <Grid container alignItems={"center"} direction="row">
                       <Grid xs={3} item>
                         <Typography>Confirm Password:</Typography>
@@ -152,7 +175,7 @@ const StudentSignup = (props) => {
                           variant="contained"
                           color="success"
                         >
-                          Register
+                          Submit
                         </Button>
                       </Grid>
                     </Grid>
@@ -167,4 +190,4 @@ const StudentSignup = (props) => {
   );
 };
 
-export default StudentSignup;
+export default AdminResetPassword;
