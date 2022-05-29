@@ -27,6 +27,7 @@ import StudentLogin from "./pages/student/login";
 import StudentSetPassword from "./pages/student/setPassword";
 import StudentRegistration from "./pages/student/registration";
 import AdminSignin from "./pages/admin/signin";
+import AdminForgotPassword from "./pages/admin/forgotPassword";
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
         {/* admin routes */}
         <Route path="admin" element={<Admin />}>
           <Route path="login" element={<AdminSignin />} />
+          <Route path="forgot-password" element={<AdminForgotPassword />} />
         </Route>
 
         {/* student routes */}

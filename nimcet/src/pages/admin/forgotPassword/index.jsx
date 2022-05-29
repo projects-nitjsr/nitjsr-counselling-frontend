@@ -1,7 +1,7 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
-import { SigninAPIcall, signupValidationSchema } from "./logic";
+import { forgotAPICall, registrationValidationSchema } from "./logic";
 import useStyles from "./styles";
 import { useToasts } from "react-toast-notifications";
 import { useState } from "react";
@@ -11,21 +11,19 @@ import { useState } from "react";
  * @param {*} props
  * @returns
  */
-const AdminSignin = (props) => {
+const AdminForgotPassword = (props) => {
   const classes = useStyles();
   const toast = useToasts();
   const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      password: "",
-      eamail: "",
+      email: "",
     },
-    validationSchema: signupValidationSchema,
+    validationSchema: registrationValidationSchema,
     onSubmit: (values) => {
       setSubmitting(true);
-      const { password, email } = values;
-      SigninAPIcall({ password, email })
+      forgotAPICall(values)
         .then((res) => {
           const { error, message } = res;
           error?.forEach((err) => toast.addToast(err, { appearance: "error" }));
@@ -33,16 +31,19 @@ const AdminSignin = (props) => {
             toast.addToast(err, { appearance: "success" })
           );
           setSubmitting(false);
+          navigate("/admin/login");
         })
         .catch((err) => {
           setSubmitting(false);
+          console.log(err);
           toast.addToast("Something went wrong", { appearance: "error" });
         });
     },
   });
+
   const handleGotoLogin = (e) => {
     e.preventDefault();
-    navigate("/admin/forgot-password");
+    navigate("/admin/login");
   };
   return (
     <div style={{ padding: "8px" }}>
@@ -57,7 +58,9 @@ const AdminSignin = (props) => {
           <Box className={classes.root}>
             <Grid container direction="column">
               <Grid item>
-                <Typography className={classes.topBar}>Admin Login</Typography>
+                <Typography className={classes.topBar}>
+                  Forgot Password
+                </Typography>
               </Grid>
               <Grid item>
                 <Box className={classes.form}>
@@ -67,28 +70,20 @@ const AdminSignin = (props) => {
                     variant="contained"
                     color="success"
                   >
-                    Forgot Password
+                    Admin Login
                   </Button>
                   <br />
                   <br />
                   <Box className={classes.info}>
                     <ul>
                       <li>
-                        The admin can reset his/her password in case he/she
-                        forgets the password.
+                        The Admin should provide the email address that was gave
+                        to him/her.
                       </li>
                       <li>
-                        The password should contain at least one uppercase (A-Z)
-                      </li>
-                      <li>
-                        The password should contain at least one lowercase (a-z)
-                      </li>
-                      <li>
-                        The password should contain at least one number (0-9)
-                      </li>
-                      <li>
-                        The password should contain at least one special
-                        character ({"$&+,:;=?@#|'<>.^*()%!-"})
+                        After filling this form, you will recieve a link in
+                        their email inbox with further password recovery
+                        details.
                       </li>
                     </ul>
                   </Box>
@@ -101,7 +96,9 @@ const AdminSignin = (props) => {
           <Box className={classes.root}>
             <Grid container direction="column">
               <Grid item>
-                <Typography className={classes.topBar}>Login</Typography>
+                <Typography className={classes.topBar}>
+                  Forgot Password
+                </Typography>
               </Grid>
               <Grid item>
                 <Box className={classes.form}>
@@ -113,30 +110,11 @@ const AdminSignin = (props) => {
                       <Grid xs={9} item>
                         <TextField
                           fullWidth
-                          type="email"
                           name="email"
                           value={formik.values.email}
                           onChange={formik.handleChange}
                           error={formik.errors.email ? true : false}
                           helperText={formik.errors.email}
-                          variant="outlined"
-                        />
-                      </Grid>
-                    </Grid>
-                    <br />
-                    <Grid container alignItems={"center"} direction="row">
-                      <Grid xs={3} item>
-                        <Typography>Password:</Typography>
-                      </Grid>
-                      <Grid xs={9} item>
-                        <TextField
-                          fullWidth
-                          name="password"
-                          type="password"
-                          value={formik.values.password}
-                          onChange={formik.handleChange}
-                          error={formik.errors.password ? true : false}
-                          helperText={formik.errors.password}
                           variant="outlined"
                         />
                       </Grid>
@@ -155,7 +133,7 @@ const AdminSignin = (props) => {
                           variant="contained"
                           color="success"
                         >
-                          Login
+                          Submit
                         </Button>
                       </Grid>
                     </Grid>
@@ -170,4 +148,4 @@ const AdminSignin = (props) => {
   );
 };
 
-export default AdminSignin;
+export default AdminForgotPassword;

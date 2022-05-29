@@ -2,7 +2,7 @@ import * as yup from "yup";
 import NIM from "../../../lib/global";
 
 export const LoginValidationSchema = yup.object().shape({
-  email: yup.string().required("Email is required"),
+  regno: yup.string().required("Registration No. is required"),
   password: yup.string().required("Password is required"),
 });
 
@@ -13,7 +13,7 @@ export const LoginValidationSchema = yup.object().shape({
  * @param {*} param0 
  * @returns 
  */
-export const loginAPICall = ({ email, password }) => {
+export const loginAPICall = ({ regno, password }) => {
   return new Promise((resolve, reject) => {
     const resObj = {
       data: [],
@@ -22,8 +22,8 @@ export const loginAPICall = ({ email, password }) => {
     };
     try {
       NIM.http(NIM.env.backendUrl + "/auth/student/login", "POST", {
-        email,
         password,
+        regno,
       })
         .then((res) => {
           const { success, message, role, token } = res.data;

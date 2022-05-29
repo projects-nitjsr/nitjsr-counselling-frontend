@@ -1,38 +1,29 @@
 import * as Yup from "yup";
 import NIM from "../../../lib/global";
 
-/**
- * @description validation schema for signup
- */
-export const signupValidationSchema = Yup.object().shape({
-  password: Yup.string().required("Please Enter your password"),
-  email: Yup.string()
-    .email("Please Enter your email")
-    .required("Please Enter your email"),
+export const registrationValidationSchema = Yup.object().shape({
+  email: Yup.string().email("Please enter a valid email").required("Required"),
 });
 
 /**
  *
- * @description signup api call
  * @param {*} param0
  * @returns
  */
-export const SigninAPIcall = ({ password, email }) => {
+export const forgotAPICall = ({ email }) => {
   return new Promise((resolve, reject) => {
+    const resObj = {
+      data: [],
+      error: [],
+      message: [],
+    };
     try {
-      const resObj = {
-        data: [],
-        error: [],
-        message: [],
-      };
-      NIM.http(NIM.env.backendUrl + "/auth/admin/login", "POST", {
-        password,
+      NIM.http(NIM.env.backendUrl + "/auth/admin/forgotpassword", "POST", {
         email,
       })
         .then((res) => {
-          const { success, message, designation: role, token } = res.data;
+          const { success, message } = res.data;
           if (success) {
-            window.sessionStorage.setItem(`${role}_auth_token`, token);
             if (message) {
               resObj.message.push(message);
             } else {
@@ -56,6 +47,7 @@ export const SigninAPIcall = ({ password, email }) => {
         });
     } catch (error) {
       reject(error);
+      return;
     }
   });
 };

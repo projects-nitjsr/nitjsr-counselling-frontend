@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { loginAPICall, LoginValidationSchema } from "./logic";
 import { useToasts } from "react-toast-notifications";
+import { Button } from "@mui/material";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -23,13 +24,15 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function BasicGrid() {
   const navigate = useNavigate();
   const toast = useToasts();
+  const [submitting, setSubmitting] = React.useState(false);
   const formik = useFormik({
     initialValues: {
-      email: "",
+      regno: "",
       password: "",
     },
     validationSchema: LoginValidationSchema,
     onSubmit: (values) => {
+      setSubmitting(true);
       loginAPICall(values)
         .then((res) => {
           const { error, message } = res;
@@ -37,8 +40,11 @@ export default function BasicGrid() {
           message?.forEach((err) =>
             toast.addToast(err, { appearance: "success" })
           );
+          setSubmitting(true);
+          navigate("/student/dashboard");
         })
         .catch((err) => {
+          setSubmitting(true);
           console.log(err);
           toast.addToast("Something went wrong", { appearance: "error" });
         });
@@ -95,8 +101,9 @@ export default function BasicGrid() {
                           <div className="lb-instructions">
                             <ol>
                               <li>
-                                Candidate can only login through the registration no
-                                provided during registration process.
+                                Candidate can only login through the
+                                registration no provided during registration
+                                process.
                               </li>
                               <li>
                                 Candidate can reset his/her password in case
@@ -142,8 +149,8 @@ export default function BasicGrid() {
                                 <strong>Registration No.</strong>
                               </label>
                               <input
-                                name="email"
-                                value={formik.values.email}
+                                name="regno"
+                                value={formik.values.regno}
                                 onChange={formik.handleChange}
                                 className="input-field"
                                 placeholder="Registration No."
@@ -176,7 +183,26 @@ export default function BasicGrid() {
                             <br />
                             <div className="l-buttons">
                               <Stack direction="row" spacing={2}>
-                                <button type="submit" className="rb-login-btn">
+                                <Button
+                                  variant="contained"
+                                  color="success"
+                                  disabled={submitting}
+                                  type="submit"
+                                >
+                                  Login
+                                </Button>
+                                <Button
+                                  variant="contained"
+                                  color="error"
+                                  disabled={submitting}
+                                >
+                                  Forgot Password?
+                                </Button>
+                                {/* <button
+                                  disabled={!submitting}
+                                  type="submit"
+                                  className="rb-login-btn"
+                                >
                                   Log In
                                 </button>
                                 <button
@@ -184,7 +210,7 @@ export default function BasicGrid() {
                                   className="rb-fPassword-btn"
                                 >
                                   Forgot Password?
-                                </button>
+                                </button> */}
                               </Stack>
                             </div>
                           </form>
